@@ -16,3 +16,31 @@ GPT-2
 Llama-2
 GPT-3.5/4 (ChatGpt/ChatGPT Pro)
 GPT 4 is a powerful generator model for x,y,z reasons.
+
+Why Contextual Compression
+https://blog.langchain.dev/improving-document-retrieval-with-contextual-compression/
+
+Task
+Suppose you wanted to create a chatbot that could answer questions about your personal notes. One simple approach is to embed your notes in equally-sized chunks and store the embeddings in a vector store. When you ask the system a question, it embeds your question, performs a similarity search over the vector store, retrieves the most relevant documents (chunks of text), and appends them to the LLM prompt
+
+Problem
+One problem with this approach is that when you ingest data into your document storage system, you often don’t know what specific queries will be used to retrieve those documents. In our notes Q&A example, we simply partitioned our text into equally-sized chunks. That means that when we get a specific user question and retrieve a document, even if the document has some relevant text it likely has some irrelevant text as well.
+Inserting irrelevant information into the LLM prompt is bad because:
+It might distract the LLM from the relevant information
+It takes up precious space that could be used to insert other relevant information.
+
+Solution
+To help with this we’ve introduced a DocumentCompressor abstraction which allows you to run compress_documents(documents: List[Document], query: str) on your retrieved documents. The idea is simple: instead of immediately returning retrieved documents as-is, we can compress them using the context of the given query so that only the relevant information is returned. “Compressing” here refers to both compressing the contents of an individual document and filtering out documents wholesale.
+Retrieval Q&A system with contextual document compression
+The goal of compressors is to make it easy to pass only the relevant information to the LLM. By doing this, it also enables you to pass along more information to the LLM, since in the initial retrieval step you can focus on recall (e.g. by increasing the number of documents returned) and let the compressors handle precision.
+
+
+How do we model substitutes?
+Ans: 
+i) Tuple grouping : Group all similar ingredients/ substitutes in a tuple and ask our LLM to prompt ingredients from same tuples for example:
+(Honey, (Sugar+Water), Saccharin, Steria) are similar elements/ substitutes (Chilli Powder, Paprika, Cajun Pepper)
+ii) Semantic Matching : - Sentence BERT, Poly Encoders, Siamese Neural Networks(Training is expensive).
+iii) Metric Learning : In the context of deep learning, triplet loss is a method for training neural networks to produce embeddings where the distance between similar elements is minimized, and the distance between dissimilar elements is maximized.
+	
+
+

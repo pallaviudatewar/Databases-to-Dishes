@@ -1,4 +1,25 @@
 # Databases-to-Dishes
+Report Format
+You are free to format your report but a good format is to follow a short paper: 
+1. Introduction
+2. Methods
+3. Experiments 
+4. Results&Discussion
+5. Conclusions.
+
+We will also add sections or write under a section in any section mentioned above
+1. Challenges faced
+2. Application of the product
+3. How to evaluate our response/output
+4. Why did we use :
+   i) The generator which we are currently using
+   ii) The retriever which we are cuurently using
+
+Marks are given for
+i) Novelty
+ii) Delivering our project proposal
+iii) Analysis of our results
+
 
 Challenges encountered:
 -Evaluation of our recipe?
@@ -20,7 +41,7 @@ GPT 4 is a powerful generator model for x,y,z reasons.
 Why Contextual Compression
 https://blog.langchain.dev/improving-document-retrieval-with-contextual-compression/
 
-Task
+Task -  to retrieve
 Suppose you wanted to create a chatbot that could answer questions about your personal notes. One simple approach is to embed your notes in equally-sized chunks and store the embeddings in a vector store. When you ask the system a question, it embeds your question, performs a similarity search over the vector store, retrieves the most relevant documents (chunks of text), and appends them to the LLM prompt
 
 Problem

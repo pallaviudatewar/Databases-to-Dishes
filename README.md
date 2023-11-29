@@ -32,24 +32,24 @@ Vector Store with FAISS
 FAISS, a library for efficient similarity search, is employed to create a vector store of recipe steps. This store enables quick and relevant retrieval of recipes based on the embeddings generated in the previous step.
 
 
-Contextual Retrieval and Document Compression
+3.4 Contextual Retrieval and Document Compression
 
-1. Large Language Model (LLM) Setup
+3.4.1. Large Language Model (LLM) Setup
 An instance of the OpenAI model is initialized, configured to operate with a specific temperature setting. This LLM serves as the backbone for generating and refining recipe content.
 
-2. Document Compression for Relevance
+3.4.2. Document Compression for Relevance
 The LLMChainExtractor is implemented to compress and refine the retrieved documents. This step ensures that only the most relevant and concise content is fed into the LLM, enhancing the quality of the generated recipes.
 
-3. Contextual Compression Retrieval
+3.4.3. Contextual Compression Retrieval
 A Contextual Compression Retriever is developed, combining the document compressor and the retrieval mechanism. This retriever is key in obtaining relevant and concise recipe information, tailored to specific ingredient queries.
 
 
 3.5 Recipe Generation and QA Pipeline
 
-1. Retrieval-QA Chain
+3.5.1. Retrieval-QA Chain
 The RetrievalQA chain integrates the retrieval and compression functionalities. It is respon-sible for generating recipes in response to specific queries, considering user-specified constraints and preferences.
 
-3. Query Processing
+3.5.2. Query Processing
 The system is designed to handle queries that specify particular ingredients and constraints. This functionality allows for the generation of customized recipes, adhering to user requirements and dietary preferences.
 
 4 Experiments

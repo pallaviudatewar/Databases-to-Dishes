@@ -53,6 +53,7 @@ The RetrievalQA chain integrates the retrieval and compression functionalities. 
 The system is designed to handle queries that specify particular ingredients and constraints. This functionality allows for the generation of customized recipes, adhering to user requirements and dietary preferences.
 
 4 Experiments
+
 The experimental setup is designed to explore and evaluate the performance of a recipe generation system comprising three key components: Recipe Search, Embedding and Retrieval, and Recipe Generation with GPT-4. The aim is to assess the effectiveness and creativity of the system in generating relevant and diverse recipes based on user-input ingredients. The experimental phases are outlined below:
 
 1. Recipe Search:
